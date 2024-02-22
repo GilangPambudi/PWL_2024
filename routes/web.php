@@ -24,3 +24,11 @@ Route::get('/hello', function () {
 Route::get('/world', function () {
     return 'World';
    });   
+
+Route::get('/welcome', function () {
+    return 'Selamat datang!';
+});
+
+Route::get('/about', function () {
+    return '2141762126 - Gilang Pambudi Wibawanto'; 
+});   
