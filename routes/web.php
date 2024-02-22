@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\UserProfileController;
@@ -57,6 +60,6 @@ $url = route('profile');
 return redirect()->route('profile');*/
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
-Route::get('/index', [PageController::class, 'index']);
-Route::get('/articles', [PageController::class, 'articles']);
-Route::get('/about', [PageController::class, 'about']);
+Route::get('/index', [HomeController::class, 'index']);
+Route::get('/articles', [ArticleController::class, 'articles']);
+Route::get('/about', [AboutController::class, 'about']);
