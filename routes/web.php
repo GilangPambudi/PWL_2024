@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WelcomeController;
@@ -31,18 +32,9 @@ Route::get('/welcome', function () {
     return 'Selamat datang!';
 });
 
-Route::get('/about', function () {
-    return '2141762126 - Gilang Pambudi Wibawanto'; 
-});
-
 Route::get('/posts/{post}/comments/{comment}', function
 ($postId, $commentId) {
     return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
-});
-
-Route::get('/articles/{id}', function
-($id) {
-    return 'Halaman artikel dengan ID: '.$id;
 });
 
 Route::get('/user/{name?}', function ($name='John') {
@@ -65,3 +57,6 @@ $url = route('profile');
 return redirect()->route('profile');*/
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
+Route::get('/index', [PageController::class, 'index']);
+Route::get('/articles', [PageController::class, 'articles']);
+Route::get('/about', [PageController::class, 'about']);
