@@ -7,6 +7,7 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,11 @@ Route::get('/hello', [WelcomeController::class, 'hello']);
 Route::get('/index', [HomeController::class, 'index']);
 Route::get('/articles', [ArticleController::class, 'articles']);
 Route::get('/about', [AboutController::class, 'about']);
+
+Route::resource('photos', PhotoController::class);
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+]);
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
